@@ -1,6 +1,6 @@
 # B-tree-alg-2
-O seguinte trabalho prop ̃oem a implementa ̧c ̃ao de uma  ́arvore B para indexa ̧c ̃ao
-de registros de tamanho fixo. A implementa ̧c ̃ao da  ́arvore B deve armazenar nos n ́os
-os relative record numbers definidos com o tipo long, al ́em de vari ́aveis auxiliares de
-controle para manuten ̧c ̃ao das p ́aginas de disco. Todos os arquivos gerados devem
-estar no formato bin ́ario, evitando desperd ́ıcio de espa ̧co com tipos primitivos.
+O seguinte trabalho propõem a implementação de uma árvore B para indexação
+de registros de tamanho fixo. A implementação da árvore B deve armazenar nos nós
+os relative record numbers definidos com o tipo long, além de variáveis auxiliares de
+controle para manutenção das páginas de disco. Todos os arquivos gerados devem
+estar no formato binário, evitando desperdício de espaço com tipos primitivos.
