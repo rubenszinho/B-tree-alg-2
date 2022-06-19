@@ -3,22 +3,70 @@
 #include <string.h>
 #include "util.h"
 
-FILE *cria_arquivo_dados(){
-    FILE *arq = fopen(ARQ_NAME, "w+");
+// Funcao que retira o \n de uma string, caso haja algum, e tambem as aspas
+// para que possamos utilizar com as mesmas funcoes dos exercicios de indice primario
+void sanitizar_string(char *str)
+{
+    if (str == NULL)
+    {
+        return;
+    }
+    int tam = 0;
+    tam = strlen(str);
 
-    return arq;
-}
+    if (!tam)
+    {
+        return;
+    }
 
-// Remove os characteres nulos do meio de um buffer
-void elimina_nulls(char *buffer, int tamanho){
-    char string[tamanho];
-    int j = 0;
-    for(int i = 0; i < tamanho; i++){
-        if(buffer[i] != '\0'){
-            string[j] = buffer[i];
-            j++;
+    for (int i = 0; i < tam; i++)
+    {
+        if (str[i] == '\n')
+        {
+            str[i] = '\0';
+            break;
         }
     }
-    string[j] = '\0';
-    strncpy(buffer, string, strlen(string));
+
+    for (int i = 0; i < tam; i++)
+    {
+        if (str[i] == 34) // 34 == codigo das aspas em ASCII...
+        {
+            for (int k = i; k < tam; k++)
+            {
+                str[k] = str[k + 1];
+            }
+            tam--;
+            i--;
+        }
+    }
+}
+
+// Função que cria um arquivo nome_arq. Se ele já existir, limpa todos os seus dados.
+// Usada no início do programa para que as próximas aberturas possam ser feitas com o modo
+// de abertura "r"
+void cria_arquivo_dados(char *nome_arq)
+{
+    if (nome_arq == NULL)
+    {
+        return;
+    }
+
+    FILE *file = fopen(nome_arq, "w");
+    if (file == NULL)
+    {
+        return;
+    }
+    fclose(file);
+}
+
+void imprimir_aluno(aluno_st *aluno)
+{
+    printf("-------------------------------\n");
+    printf("nUSP: %d\n", aluno -> num_usp);
+    printf("Nome: %s\n", aluno -> nome);
+    printf("Sobrenome: %s\n", aluno -> sobrenome);
+    printf("Curso: %s\n", aluno -> curso);
+    printf("Nota: %.2f\n", aluno -> nota);
+    printf("-------------------------------\n");
 }
