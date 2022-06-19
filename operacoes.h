@@ -7,7 +7,7 @@
 
 typedef struct aluno aluno_st;
 
-// Recebe uma string como argumento para armazenar a (index_ésima + 1) palavra
+// Recebe uma string como argumento para armazenar a (indexésima + 1) palavra
 // no endereco "parseado". Utiliza-se das macros definidas em util.h.
 // Como por exemplo, ao receber CSV_CURSO como "index", retorna em "parseado"
 // o curso do registro. Ao receber CSV_NOTA, retorna a nota em "parseado".

@@ -8,11 +8,11 @@
 int main(void)
 {
     char nome_arq[] = "registros.bin";
-    char tree_file_name[] = "chaves.bin";
+    char nome_arq_arvore[] = "chaves.bin";
     cria_arquivo_dados(nome_arq);
-    cria_arquivo_dados(tree_file_name);
+    cria_arquivo_dados(nome_arq_arvore);
 
-    FILE *ponteiro_arvore_arq = fopen(tree_file_name, "r+");
+    FILE *ponteiro_arvore_arq = fopen(nome_arq_arvore, "r+");
     btPage *raiz = pegaOuCriaRaiz(ponteiro_arvore_arq);
 
     // Etapa de leitura da stdin e escrita dos dados lidos no arquivo binário.
